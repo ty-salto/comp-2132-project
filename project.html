@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--Jospeh Tyronne Salto Student # A01060698-->	
+        <title>Joseph Tyronne Salto</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/favicon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon.png">
+
+		<link rel="stylesheet" href="css/styles.css">
+
+		<script src="script/jquery-3.6.1.min.js" defer="defer"></script>
+		<script src="script/floor_map.js" defer="defer"></script>
+		<script src="script/dungeon_layout.js" defer="defer"></script>
+
+		<script src="script/player.js" defer="defer"></script>
+		<script src="script/monster.js" defer="defer"></script>
+		<script src="script/collisions.js" defer="defer"></script>
+		<script src="script/controls.js" defer="defer"></script>
+		
+		<script src="script/game_generator.js" defer="defer"></script>
+
+		<script src="script/project2.js" defer="defer"></script>
+		
+		
+
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<h1>COMP 2132 - Assignment 08</h1>
+			</header>
+			
+			<main>
+				<div id="dungeonCrawler">
+					<canvas id="floor"></canvas>
+					<canvas id="character"></canvas>
+				</div>
+			</main>
+			<footer>
+				<p>This page was created for educational purpose.</p>
+				<p>COMP 2032 - Web Development JavaScript - Fall 2022</p>
+			</footer>
+		</div>
+		
+		<div id="diceBattle">
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<!--Round-->
+				<div id="roundContainer">
+					<h2 id="round">Round: 0</h2>
+				</div>
+
+				<div style="background: black; width: 500px; height: 400px; justify-content: center;">
+					<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 30%; height: auto;">
+					<img src="./images/sprite_monster/ogre_idle_anim_f0.png" alt="" style="transform: scaleX(-1); width: auto; height: 70%;">
+				</div>
+
+				<!--Dice Battle stats-->
+				<div style="display: flex; background:rgb(122, 104, 81); margin: 0 5%;">
+					<div style="display: flex; flex-direction: column; align-items: center;">
+						<h3 id="msg">YOU</h3>
+						
+						<div class="diceContainer">
+							
+							<img src="./images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
+	  
+						  	<img src="./images/dice/d2.png" alt="p1die" id="p1Dice2" class="dice active" style="width: 10%; height: auto;">
+			  			</div>
+						
+						<h4>
+							P1 Score: <span id="p1Score">0</span>
+						</h4>
+						<h3>
+							P1 Total: <span id="p1Total">0</span>
+						</h3>
+					</div>
+
+					<div style="display: flex; flex-direction: column; align-items: center;">
+						<h3 id="msg">Opponent</h3>
+						
+						<div class="diceContainer">
+							
+							<img src="./images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
+	  
+						  	<img src="./images/dice/d2.png" alt="p1die" id="p1Dice2" class="dice active" style="width: 10%; height: auto;">
+			  			</div>
+						
+						<h4>
+							P2 Score: <span id="p1Score">0</span>
+						</h4>
+						<h3>
+							P2 Total: <span id="p1Total">0</span>
+						</h3>
+					</div>
+				</div>
+
+				<!--Dice buttons-->
+				<div style="display: flex; flex-direction: column; align-items: center;">
+					<button type="button" class="button" id="rollbtn">Roll Dice</button>
+        			<div>
+						<button type="button" class="button" id="newGamebtn">New Game</button>
+						<button type="button" class="button" id="newGamebtn">Exit Game</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="hangMan">
+			<div style="padding: 15%;">
+				<div>
+					<div style="background: black; width: 500px; height: 400px; padding: auto;">
+						<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 30%; height: auto;" id = "dicePlayer">
+						<img src="./images/sprite_monster/ogre_idle_anim_f0.png" alt="" style="transform: scaleX(-1); width: auto; height: 70%;" id = "diceMonster">
+					</div>
+							
+					<div>
+						
+					</div>
+
+					<div>
+
+					</div>
+				</div>
+
+				<div id="keyBoard">
+					<div id="upperKeys2">
+						<button type="button" class="keys2">Q</button>
+						<button type="button" class="keys2">W</button>
+						<button type="button" class="keys2">E</button>
+						<button type="button" class="keys2">R</button>
+						<button type="button" class="keys2">T</button>
+						<button type="button" class="keys2">Y</button>
+						<button type="button" class="keys2">U</button>
+						<button type="button" class="keys2">I</button>
+						<button type="button" class="keys2">O</button>
+						<button type="button" class="keys2">P</button>
+					</div>
+					<div id="midKeys2">
+						<button type="button" class="keys2">A</button>
+						<button type="button" class="keys2">S</button>
+						<button type="button" class="keys2">D</button>
+						<button type="button" class="keys2">F</button>
+						<button type="button" class="keys2">G</button>
+						<button type="button" class="keys2">H</button>
+						<button type="button" class="keys2">J</button>
+						<button type="button" class="keys2">K</button>
+						<button type="button" class="keys2">L</button>
+					</div>
+					<div id="lowerKeys2">
+						<button type="button" class="keys2">X</button>
+						<button type="button" class="keys2">C</button>
+						<button type="button" class="keys2">V</button>
+						<button type="button" class="keys2">B</button>
+						<button type="button" class="keys2">Z</button>
+						<button type="button" class="keys2">N</button>
+						<button type="button" class="keys2">M</button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+
+</html>

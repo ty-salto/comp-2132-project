@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* ------ Fonts ------ */
+@import url("fonts.css");
+/* ------ Browser Resets ------ */
+@import url("normalize.css");
+
+/* ------ Setting HTML Default ------ */
+html {
+    font-size:16px;
+    box-sizing: border-box;
+    background-color: #c1d0dc;
+    color: var(--text-color);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* ------ Variables ------ */
+:root{
+    /* page specific colors */    
+    --primary-color:#043c6c;
+    --secondary-color: azure;
+    
+    /* universal palette */
+    --text-color:rgb(47, 47, 53); /* off black */
+    --link-color:blue;            /* universal color for links*/    
+    --link-hover-color:coral;     /* universal color for hover links*/ 
+    --link-visit-color:purple;    /* universal color for visited links*/ 
+
+    /* name found palette */
+    --name-found-color-border: green;
+    --name-found-color-background: lightgreen;
+
+    /* error palette */
+    --error-color-border: rgb(131, 1, 1);
+    --error-color-background: rgba(236, 155, 155, 0.568);
+    --error-input-color-background: rgba(231, 191, 191, 0.568);
+
+    /* border color */
+    --border-color-one: black;
+    --border-color-two: ivory;
+    --border-color-shadow:  rgba(119, 119, 119, 0.808);
+
+    /* pop-up color */
+    --pop-up-close-btn-color: rgb(132, 193, 233);
+}
+
+/* ------ HTML Element Selectors ----- */
+h1, h2 {
+    font-family: 'kanit';
+    letter-spacing:2px;  
+}
+
+h2{
+    color: var(--primary-color);
+    margin-top: 10px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'kanit';
+}
+
+body
+{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    box-shadow: 0px 12px 10px -3px var(--border-color-two);
+}
+
+header,footer {
+     /* image from https://pngtree.com/  edited on photopea*/
+    background-image:url("../images/anime_cyber.png");
+    background-color: var(--primary-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    text-shadow: 0 0 2px black;    
+    color:var(--secondary-color);
+}
+
+main {
+    flex: 1 ;
+    padding: 20px;
+}
+
+footer {
+    box-shadow: 0px -12px 10px -3px var(--border-color-two);
+}
+
+footer > p {
+    margin: 0;
+}
+
+/* ------ .class Selectors ------ */
+.keys2 {
+    width: 50px;
+    height: 50px;
+}
+/* ------ #id Selectors ------ */
+
+
+#upperKeys2, #midKeys2, #lowerKeys2 {
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+    
+}
+#dungeonCrawler {
+    position: relative;
+    height: 800px;
+}
+
+#floor {
+    /*background: url('../images/floor_1.png') fixed;*/    
+    /* max-width: 760px;
+    height: 760px; */
+    /*display: grid;
+    gap: 0;
+    grid-template-columns: 
+    auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;*/
+    position: absolute;
+}
+
+#character{
+    position: absolute;
+}
+
+#diceBattle {
+    height: 900px;
+    width: 700px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    /* transition: opacity 1s; */
+    border: black solid 10px;
+    background: url("../images/wall_hole_1.png");
+    background-size: 100px;
+}
+
+#hangMan {
+    height: 900px;
+    width: 700px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    /* transition: opacity 1s; */
+    border: black solid 10px;
+    background: url("../images/wall_hole_1.png");
+    background-size: 100px;
+
+}
+#keyboard {
+
+}
+
+#upperKeys2, #midKeys2, #lowerKeys2 {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+    
+}
+
+#wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--secondary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 5px 5px black;
+
+    transition: opacity 1s;
+}
+
+/* ------ #responsive to screen ------ */
+@media only screen and (max-width: 582px) {
+   
+  }
