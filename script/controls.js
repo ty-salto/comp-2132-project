@@ -1,6 +1,7 @@
 let isPause = false;
+let keyboardPause = false;
 addEventListener(`keydown`,function(event){
-    if(!pauseKeyboardEvent){
+    if(!pauseKeyboardEvent && !keyboardPause){
         console.log(event.key);
         switch(event.key){
             case `a`://left

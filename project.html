@@ -50,17 +50,33 @@
 		</div>
 		
 		<div id="diceBattle">
-			<div id= "diceBattleContainer" style="display: flex; flex-direction: column; align-items: center;">
-				<!--Round-->
-				<div id="roundContainer">
-					<h2 id="round">Round: 0</h2>
+			<div id= "diceBattleContainer">
+				<div id="diceCharBattle">		
+					<h2 id="diceRound">Round: 1</h2>
+					<div class="diceBattling">
+						<img class="diceChar" id="diceAmogus" src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="">
+						<img id="diceMons" src="../comp-2132-project/images/sprite_monster/ogre_idle_anim_f0.png" alt="">
+					</div>
 				</div>
 
-				<div id="charBattle" style="background: black; width: 500px; height: 400px; justify-content: center;">
-					<img src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="" style=" width: 30%; height: auto;" >
-					<img src="../comp-2132-project/images/sprite_monster/ogre_idle_anim_f0.png" alt="" style="transform: scaleX(-1); width: auto; height: 70%;">
+				<div id="diceYouWin">
+					<h2 class="winText">You Win</h2>
+
+					<div class="diceBattling">
+						<img class="diceChar"  id="diceCharWin" src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="">
+					</div>
+					
 				</div>
 
+				<div id="diceYouLost">
+					<h2 class="lostText">TOO BAD, You Lost!</h2>
+
+					<div class="diceBattling">
+						<img  class="diceChar" id="diceCharLost" src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="">
+					</div>
+				</div>
+
+				
 				<!--Dice Battle stats-->
 				<div style="display: flex; background:rgb(122, 104, 81); margin: 0 5%;">
 					<div style="display: flex; flex-direction: column; align-items: center;">
@@ -85,7 +101,6 @@
 						<h3 id="msg">Opponent</h3>
 						
 						<div class="diceContainer">
-							
 							<img src="./images/dice/d1.png" alt="p2dice1" id="p2Dice1" class="dice active" style="width: 10%; height: auto;">
 	  
 						  	<img src="./images/dice/d2.png" alt="p2die" id="p2Dice2" class="dice active" style="width: 10%; height: auto;">
@@ -105,7 +120,7 @@
 					<button type="button" class="button" id="rollbtn">Roll Dice</button>
         			<div>
 						<button type="button" class="button" id="newGamebtn">New Game</button>
-						<button type="button" class="button" id="exitGamebtn">Exit Game</button>
+						<button type="button" class="button" id="exitGamebtn">Return</button>
 					</div>
 				</div>
 

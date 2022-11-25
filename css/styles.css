@@ -97,9 +97,16 @@ footer > p {
 }
 
 /* ------ .class Selectors ------ */
+
 .keys2 {
     width: 50px;
     height: 50px;
+}
+
+.diceBattling {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
 }
 /* ------ #id Selectors ------ */
 
@@ -132,6 +139,7 @@ footer > p {
     position: absolute;
 }
 
+/* Dice battle */
 #diceBattle {
     height: 900px;
     width: 700px;
@@ -144,8 +152,48 @@ footer > p {
     border: black solid 10px;
     background: url("../images/wall_hole_1.png");
     background-size: 100px;
-    
     display: none;
+}
+
+#diceBattleContainer {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 5%;
+}
+
+#diceCharBattle{
+    background: black; 
+    width: 500px; 
+    height: 400px;
+    display: inline; 
+}
+
+
+
+#diceYouWin {
+    background: black; 
+    width: 500px; 
+    height: 400px; 
+    justify-content: center;
+    display: none;
+}
+
+#diceYouLost{
+    background: black; 
+    width: 500px; 
+    height: 400px; 
+    justify-content: center;
+    display: none;
+}
+
+.diceChar {
+    width: 30%; height: auto;
+} 
+
+#diceMons {
+    transform: scaleX(-1); 
+    width: 50%; height: auto;
 }
 
 #hangMan {
@@ -160,10 +208,10 @@ footer > p {
     border: black solid 10px;
     background: url("../images/wall_hole_1.png");
     background-size: 100px;
-
     display: none;
-
 }
+
+
 
 
 #upperKeys2, #midKeys2, #lowerKeys2 {

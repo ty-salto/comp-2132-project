@@ -26,8 +26,10 @@ function doorDetection(x, y){
 }
 
 //Monster to detect player
-let monsterIndex;
+
+let monsterIndex = 0;
 let playerDetected = false; 
+
 function monsterDetect(monster, index) {
     const monsImgH = monster.image.height;
     const monsImgW = monster.image.width;
@@ -56,8 +58,16 @@ function monsterDetect(monster, index) {
         playerDetected = true;
         diceBattle.setAttribute(`style`, `display: inline;`)
         monsterIndex = index;
-        console.log(monsterIndex);
+        // while(diceBattle.firstChild) {
+        //     diceBattling.firstChild.remove();
+        // }
 
+
+  
+
+
+
+        console.log(monsterIndex);
     }
 
 }
