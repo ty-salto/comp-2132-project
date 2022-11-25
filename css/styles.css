@@ -139,11 +139,13 @@ footer > p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
+    opacity: 1;
     /* transition: opacity 1s; */
     border: black solid 10px;
     background: url("../images/wall_hole_1.png");
     background-size: 100px;
+    
+    display: none;
 }
 
 #hangMan {
@@ -153,16 +155,16 @@ footer > p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
+    opacity: 1;
     /* transition: opacity 1s; */
     border: black solid 10px;
     background: url("../images/wall_hole_1.png");
     background-size: 100px;
 
-}
-#keyboard {
+    display: none;
 
 }
+
 
 #upperKeys2, #midKeys2, #lowerKeys2 {
     display: flex;

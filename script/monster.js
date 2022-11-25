@@ -106,4 +106,4 @@ const mons8 = new Monster(lizard, {
 
 
 //Array of Monsters
-const monsters = [boss,mons1,mons2,mons3,mons4,mons5,mons6,mons7,mons8];
+let monsters = [boss,mons1,mons2,mons3,mons4,mons5,mons6,mons7,mons8];

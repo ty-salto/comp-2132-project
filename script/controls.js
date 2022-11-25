@@ -53,6 +53,8 @@ addEventListener(`keydown`,function(event){
 
         }
     }
+    // reset the detection of monsters for player
+    playerDetected = false;
 })
 
 let pauseKeyboardEvent = false;

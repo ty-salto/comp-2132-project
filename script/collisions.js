@@ -1,3 +1,5 @@
+const diceBattle = document.getElementById(`diceBattle`);
+
 function collisionDetection(position) {
     //wall collision
     if (position == `w`){
@@ -24,7 +26,9 @@ function doorDetection(x, y){
 }
 
 //Monster to detect player
-function monsterDetect(monster) {
+let monsterIndex;
+let playerDetected = false; 
+function monsterDetect(monster, index) {
     const monsImgH = monster.image.height;
     const monsImgW = monster.image.width;
     
@@ -47,9 +51,13 @@ function monsterDetect(monster) {
     if((monster.position.y <= playChar.position.y + 20 && 
         monster.position.y + height >= playChar.position.y + 20) &&
         monster.position.x <= playChar.position.x &&
-        monster.position.x + width > playChar.position.x) {
+        monster.position.x + width > playChar.position.x && !playerDetected) {
         console.log(`We detect the knight!`);
-        document.getElementById(`diceBattle`).setAttribute(`style`, `opacity:1;`)
+        playerDetected = true;
+        diceBattle.setAttribute(`style`, `display: inline;`)
+        monsterIndex = index;
+        console.log(monsterIndex);
+
     }
 
 }

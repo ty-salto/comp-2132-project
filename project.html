@@ -12,18 +12,23 @@
 
 		<link rel="stylesheet" href="css/styles.css">
 
-		<script src="script/jquery-3.6.1.min.js" defer="defer"></script>
-		<script src="script/floor_map.js" defer="defer"></script>
-		<script src="script/dungeon_layout.js" defer="defer"></script>
+		<script src="./script/jquery-3.6.1.min.js" defer="defer"></script>
+		<script src="./script/floor_map.js" defer="defer"></script>
+		<script src="./script/dungeon_layout.js" defer="defer"></script>
 
-		<script src="script/player.js" defer="defer"></script>
-		<script src="script/monster.js" defer="defer"></script>
-		<script src="script/collisions.js" defer="defer"></script>
-		<script src="script/controls.js" defer="defer"></script>
+		<script src="./script/player.js" defer="defer"></script>
+		<script src="./script/monster.js" defer="defer"></script>
+		<script src="./script/collisions.js" defer="defer"></script>
+		<script src="./script/controls.js" defer="defer"></script>
 		
-		<script src="script/game_generator.js" defer="defer"></script>
 
-		<script src="script/project2.js" defer="defer"></script>		
+		
+		<script src="./script/game_generator.js" defer="defer"></script>
+
+		<script src="./script/project2.js" defer="defer"></script>		
+
+		
+		<script src="./script/dice_game.js" defer="defer"></script>
 
 	</head>
 	<body>
@@ -45,15 +50,15 @@
 		</div>
 		
 		<div id="diceBattle">
-			<div style="display: flex; flex-direction: column; align-items: center;">
+			<div id= "diceBattleContainer" style="display: flex; flex-direction: column; align-items: center;">
 				<!--Round-->
 				<div id="roundContainer">
 					<h2 id="round">Round: 0</h2>
 				</div>
 
-				<div style="background: black; width: 500px; height: 400px; justify-content: center;">
-					<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 30%; height: auto;">
-					<img src="./images/sprite_monster/ogre_idle_anim_f0.png" alt="" style="transform: scaleX(-1); width: auto; height: 70%;">
+				<div id="charBattle" style="background: black; width: 500px; height: 400px; justify-content: center;">
+					<img src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="" style=" width: 30%; height: auto;" >
+					<img src="../comp-2132-project/images/sprite_monster/ogre_idle_anim_f0.png" alt="" style="transform: scaleX(-1); width: auto; height: 70%;">
 				</div>
 
 				<!--Dice Battle stats-->
@@ -63,7 +68,7 @@
 						
 						<div class="diceContainer">
 							
-							<img src="./images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
+							<img src="../comp-2132-project/images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
 	  
 						  	<img src="./images/dice/d2.png" alt="p1die" id="p1Dice2" class="dice active" style="width: 10%; height: auto;">
 			  			</div>
@@ -81,16 +86,16 @@
 						
 						<div class="diceContainer">
 							
-							<img src="./images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
+							<img src="./images/dice/d1.png" alt="p2dice1" id="p2Dice1" class="dice active" style="width: 10%; height: auto;">
 	  
-						  	<img src="./images/dice/d2.png" alt="p1die" id="p1Dice2" class="dice active" style="width: 10%; height: auto;">
+						  	<img src="./images/dice/d2.png" alt="p2die" id="p2Dice2" class="dice active" style="width: 10%; height: auto;">
 			  			</div>
 						
 						<h4>
-							P2 Score: <span id="p1Score">0</span>
+							P2 Score: <span id="p2Score">0</span>
 						</h4>
 						<h3>
-							P2 Total: <span id="p1Total">0</span>
+							P2 Total: <span id="p2Total">0</span>
 						</h3>
 					</div>
 				</div>
@@ -100,7 +105,7 @@
 					<button type="button" class="button" id="rollbtn">Roll Dice</button>
         			<div>
 						<button type="button" class="button" id="newGamebtn">New Game</button>
-						<button type="button" class="button" id="newGamebtn">Exit Game</button>
+						<button type="button" class="button" id="exitGamebtn">Exit Game</button>
 					</div>
 				</div>
 
