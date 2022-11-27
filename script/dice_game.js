@@ -70,10 +70,10 @@ rollbtn.addEventListener("click", function(){
         let randomNum3 = getRndNum();
         let randomNum4 = getRndNum();
 
-        player1Dice1.src = `../comp-2132-project/images/dice/d${randomNum1}.png`;
-        player1Dice2.src = `../comp-2132-project/images/dice/d${randomNum2}.png`;
-        player2Dice1.src = `../comp-2132-project/images/dice/d${randomNum3}.png`;
-        player2Dice2.src = `../comp-2132-project/images/dice/d${randomNum4}.png`;
+        player1Dice1.src = `../images/dice/d${randomNum1}.png`;
+        player1Dice2.src = `../images/dice/d${randomNum1}.png`;
+        player2Dice1.src = `../images/dice/d${randomNum1}.png`;
+        player2Dice2.src = `../images/dice/d${randomNum1}.png`;
 
         if (randomNum1 == 1 || randomNum2 == 1) {
             p1CurrentScore = 0;
