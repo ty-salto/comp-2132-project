@@ -92,6 +92,7 @@ function generateButtons() {
     <div id="midKeys2">${middleLetterBtn}</div>
     <div id="lowerKeys2">${lowerLetterBtn}</div>
     `;
+    keyboard.removeAttribute('hidden');
 }    
 
 // when keyboard letter is clicked
@@ -184,6 +185,7 @@ function handleGuess(chosenLetter){
 
 function returnUnlock () {
     doors[doorIndex].image = codeStrct.doorOpen;
+    keyboard.setAttribute('hidden', true);
 }
 
 
@@ -191,21 +193,17 @@ rtrnGmeBtn.addEventListener(`click`, function() {
     cancelAnimationFrame(hangManHandler);
     dungeonGenerator();
     document.getElementById(`hangMan`).style.display = `none`;
-    livesCounter = 6 ;
-    generateButtons();
+    resetHangman();
     hangManUnlocking.style.display = `inline`;
     hangManDead.style.display = `none`;
     hangManUnlock.style.display = `none`;
     hangManMons.style.left = `10%`;
-
-
-
-
-
-
 })
 
 function resetHangman() {
+    livesCounter = 6 ;
+    generateButtons();
+    getRandomWord();
 
 }
 
@@ -234,6 +232,7 @@ function hangManAnimate() {
         //hangManPlayer.setAttribute(`style`, `transform: rotate(90deg);`);
         playChar.position.x = 384;
         playChar.position.y = 764;
+        keyboard.setAttribute('hidden', true);
 
     } else if ( wordContainer.innerText === selectedWord) {
         hangManUnlocking.style.display = `none`;
@@ -244,7 +243,6 @@ function hangManAnimate() {
         getRandomWord();
         
         ++doorIndex;
-
     }    
 
     hangManHandler = requestAnimationFrame(hangManAnimate);
