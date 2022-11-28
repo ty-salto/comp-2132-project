@@ -30,8 +30,8 @@ let p1CurrentScore = 0;
 let p2CurrentScore = 0;
 let p1TotalScore   = 0;
 let p2TotalScore   = 0;
-let isLastRound = false;
-let isLost = false;
+let isLastRound    = false;
+let isLost         = false;
 
 
 exitGameBtn.disabled = true;
@@ -55,15 +55,13 @@ exitGameBtn.disabled = true;
 rollbtn.addEventListener("click", function(){
 
 
-    if (roundCnt == 3) {
-        isLastRound = true;
-    }
+        round.innerHTML = `Round: ${roundCnt}`;
+
 
     if (!isLastRound){
         console.log(`cliked`);
 
         
-        round.innerHTML = `Round: ${roundCnt}`;
 
         let randomNum1 = getRndNum();
         let randomNum2 = getRndNum();
@@ -100,21 +98,25 @@ rollbtn.addEventListener("click", function(){
         p2Total.innerHTML =  p2TotalScore;
 
         ++roundCnt; 
-    }
 
+
+    }
+        if (roundCnt === 4) {
+            isLastRound = true;
+        }
 
    
 })
 
-newGamebtn.addEventListener("click", resetGame)
-function updateScore(){
-    // to do?
-    // p1Score.innerHTML = p1CurrentScore;
-    // p1TotalScore = p1TotalScore + p1CurrentScore;
-    // p1Total.innerHTML =  p1TotalScore;
+// newGamebtn.addEventListener("click", resetGame)
+// function updateScore(){
+//     // to do?
+//     // p1Score.innerHTML = p1CurrentScore;
+//     // p1TotalScore = p1TotalScore + p1CurrentScore;
+//     // p1Total.innerHTML =  p1TotalScore;
 
 
-}
+// }
 
 exitGameBtn.addEventListener(`click`, function(){
     const newMonsArr = [];
@@ -143,7 +145,7 @@ exitGameBtn.addEventListener(`click`, function(){
     cancelAnimationFrame(diceHandler)
     gameStartHandler = requestAnimationFrame(dungeonAnimate);
     keyboardPause = false;
-    count = 0;
+    // count = 0;
 })
 
 function resetGame(){
@@ -167,6 +169,7 @@ function resetGame(){
     diceWin.setAttribute(`style`, `display: none;`);
     diceLost.setAttribute(`style`, `display: none;`);
     exitGameBtn.disabled = true;
+    rollbtn.disabled = false;
     // $("#round").text(`Round: ${round}`).css("border", "none");
     // rollbtn.disabled = false;
 
@@ -211,7 +214,7 @@ function diceAnimate() {
         if(p1TotalScore>p2TotalScore){
             diceWin.setAttribute(`style`, `display: inline;`);
         }
-        else if(p2TotalScore > p1TotalScore)
+        else if(p2TotalScore >= p1TotalScore)
         {
             diceLost.setAttribute(`style`, `display: inline;`);
             
@@ -220,7 +223,7 @@ function diceAnimate() {
             playChar.position.y = 764;
             isLost = true;
         }
-
+        rollbtn.disabled = true;
         exitGameBtn.disabled = false;
     }
 
