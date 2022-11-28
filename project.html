@@ -14,10 +14,12 @@
 
 		<script src="./script/jquery-3.6.1.min.js" defer="defer"></script>
 		<script src="./script/floor_map.js" defer="defer"></script>
+
+		<script src="./script/monster.js" defer="defer"></script>
 		<script src="./script/dungeon_layout.js" defer="defer"></script>
 
 		<script src="./script/player.js" defer="defer"></script>
-		<script src="./script/monster.js" defer="defer"></script>
+
 		<script src="./script/collisions.js" defer="defer"></script>
 		<script src="./script/controls.js" defer="defer"></script>
 		
@@ -29,6 +31,8 @@
 
 		
 		<script src="./script/dice_game.js" defer="defer"></script>
+		
+		<script src="./script/hang_man.js" defer="defer"></script>
 
 	</head>
 	<body>
@@ -54,8 +58,8 @@
 				<div id="diceCharBattle">		
 					<h2 id="diceRound">Round: 1</h2>
 					<div class="diceBattling">
-						<img class="diceChar" id="diceAmogus" src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="">
-						<img id="diceMons" src="../comp-2132-project/images/sprite_monster/ogre_idle_anim_f0.png" alt="">
+						<img class="diceChar" id="diceAmogus" src="./images/knight_f_run_anim_f0.png" alt="">
+						<img id="diceMons" src="./images/sprite_monster/ogre_idle_anim_f0.png" alt="">
 					</div>
 				</div>
 
@@ -63,7 +67,7 @@
 					<h2 class="winText">You Win</h2>
 
 					<div class="diceBattling">
-						<img class="diceChar"  id="diceCharWin" src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="">
+						<img class="diceChar"  id="diceCharWin" src="./images/knight_f_run_anim_f0.png" alt="">
 					</div>
 					
 				</div>
@@ -72,7 +76,7 @@
 					<h2 class="lostText">TOO BAD, You Lost!</h2>
 
 					<div class="diceBattling">
-						<img  class="diceChar" id="diceCharLost" src="../comp-2132-project/images/knight_f_run_anim_f0.png" alt="">
+						<img  class="diceChar" id="diceCharLost" src="./images/knight_f_run_anim_f0.png" alt="">
 					</div>
 				</div>
 
@@ -84,7 +88,7 @@
 						
 						<div class="diceContainer">
 							
-							<img src="../images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
+							<img src="./images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
 	  
 						  	<img src="./images/dice/d2.png" alt="p1die" id="p1Dice2" class="dice active" style="width: 10%; height: auto;">
 			  			</div>
@@ -129,23 +133,37 @@
 
 		<div id="hangMan">
 			<div style="padding: 15%;">
-				<div>
+				<div id="hangManUnlocking">
 					<div style="background: black; width: 500px; height: 400px; padding: auto;">
-						<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 30%; height: auto;" id = "dicePlayer">
-						<img src="./images/sprite_monster/ogre_idle_anim_f0.png" alt="" style="transform: scaleX(-1); width: auto; height: 70%;" id = "diceMonster">
+						<h2>Find the word to Unlock!</h2>
+						
+						
+
+						<img src="./images/sprite_monster/lizard_f_idle_anim_f0.png" alt="" style=" width: 5%; height: auto; position: relative;left: 10%;" id = "hangManMons">
+						<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 5%; height: auto; position: relative;right: -70%;" id = "hangManPlayer">
+						<img src="./images/doors_leaf_closed.png" alt="" style=" width: 10%; height: auto; position: relative; right: -70%;" id = "hangManDoor">
+
+
+						<div id="word-container"></div>
+						<p id="hint-container">Hint: </p>
 					</div>
 							
-					<div>
-						
-					</div>
+					
+				</div>
 
-					<div>
+				<div id="hangManUnlock" style="display: none;">
+					<h2>Door Unlock!</h2>
+					<div id="guessedWord"></div>
+					<img src="./images/doors_leaf_open.png" alt="" >
+				</div>
 
-					</div>
+				<div id="hangManDead" style="display: none;">
+					<h2>Monster Caught you! Too Slow!</h2>
+					<img  class="diceChar" id="hangManLost" src="./images/knight_f_run_anim_f0.png" alt="">
 				</div>
 
 				<div id="keyBoard">
-					<div id="upperKeys2">
+					<!-- <div id="upperKeys2">
 						<button type="button" class="keys2">Q</button>
 						<button type="button" class="keys2">W</button>
 						<button type="button" class="keys2">E</button>
@@ -176,8 +194,13 @@
 						<button type="button" class="keys2">Z</button>
 						<button type="button" class="keys2">N</button>
 						<button type="button" class="keys2">M</button>
-					</div>
+					</div> -->
 				</div>
+
+				<div style="display: flex; flex-direction: column; align-items: center;">
+					<button type="button" class="button" id="returnGamebtn" disabled>Return</button>
+				</div>
+
 			</div>
 			
 		</div>

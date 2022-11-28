@@ -13,7 +13,7 @@ function dungeonGenerator(){
             }
 
             const layout =
-                new Wall(img ,{
+                new DungeonFloor (img ,{
                     position: {
                         x: 16*j,
                         y: 16*i

@@ -15,10 +15,15 @@ function doorDetection(x, y){
     doors.forEach((element)=>{
         if(((element.position.x == x && element.position.y == y-12) ||
         (element.position.x == x-16 && element.position.y == y-12)) &&
-        element.image.className == `doorClose`)//check theif doorclose is right spelling
+        element.image.className == `doorClosed`)//check the if doorclose is right spelling
         {
-            console.log(`${element.image.className} true`)
-            document.getElementById(`hangMan`).setAttribute(`style`, `opacity:1;`)
+            if(element.numOfKeys == 0){
+                console.log(`number of monster = ${element.numOfKeys}`);
+                console.log(`${element.image.className} true`)
+                document.getElementById(`hangMan`).setAttribute(`style`, `display: inline;`)
+                requestAnimationFrame(hangManAnimate);
+            }
+
             isDoor = true;
         }
     })

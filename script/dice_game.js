@@ -70,10 +70,10 @@ rollbtn.addEventListener("click", function(){
         let randomNum3 = getRndNum();
         let randomNum4 = getRndNum();
 
-        player1Dice1.src = `../images/dice/d${randomNum1}.png`;
-        player1Dice2.src = `../images/dice/d${randomNum1}.png`;
-        player2Dice1.src = `../images/dice/d${randomNum1}.png`;
-        player2Dice2.src = `../images/dice/d${randomNum1}.png`;
+        player1Dice1.src = `./images/dice/d${randomNum1}.png`;
+        player1Dice2.src = `./images/dice/d${randomNum2}.png`;
+        player2Dice1.src = `./images/dice/d${randomNum3}.png`;
+        player2Dice2.src = `./images/dice/d${randomNum4}.png`;
 
         if (randomNum1 == 1 || randomNum2 == 1) {
             p1CurrentScore = 0;
@@ -123,6 +123,11 @@ exitGameBtn.addEventListener(`click`, function(){
 
     if(!isLost)
     {
+        monsters[monsterIndex].isAlive = false;
+        console.log(`${monsters[monsterIndex].isAlive}`)
+        doors.forEach((door)=>{
+            door.unlock();
+        })
         monsters.forEach((mons,i)=>{
             if (i != monsterIndex) {
                 newMonsArr.push(mons);
@@ -186,7 +191,7 @@ function diceAnimate() {
         diceMons.src =`./images/sprite_monster/lizard_f_idle_anim_f${imgCnt}.png`;
     } else if(monsters[monsterIndex].type == `orcWar`) {
         diceMons.src =`./images/sprite_monster/masked_orc_idle_anim_f${imgCnt}.png`;
-    } else if(monsters[monsterIndex].type == `jeffDOrc`) {
+    } else if(monsters[monsterIndex].type == `orc`) {
         diceMons.src =`./images/sprite_monster/ogre_idle_anim_f${imgCnt}.png`; 
     }
 

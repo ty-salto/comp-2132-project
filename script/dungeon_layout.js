@@ -6,6 +6,7 @@ const codeStrct = {
     walls: new Image(),
     floor: new Image(),
     door: new Image(),
+    doorOpen: new Image(),
     error: new Image()
 }
 console.log(`${pattern.length}`);
@@ -32,6 +33,12 @@ codeStrct.door.onload = function(){
     console.log(`${codeStrct.door.src}`);
 }
 
+codeStrct.doorOpen.src = `./images/doors_leaf_open.png`;
+codeStrct.doorOpen.setAttribute(`class`, `doorOpen`) 
+codeStrct.doorOpen.onload = function(){
+    console.log(`${codeStrct.doorOpen.src}`);
+}
+
 canvas.width = 800;
 canvas.height = 800;
 
@@ -40,7 +47,7 @@ character.height = 800;
 
 console.log(`${canvas.width} ${canvas.height}`);
 
-class Wall {
+class DungeonFloor {
     constructor(image, {position}){
         this.image = image
         this.position = position
@@ -51,25 +58,51 @@ class Wall {
     }
 } 
 
+class DungeonDoor {
+    constructor(image, {position}, keys=[]){
+        this.image = image
+        this.position = position
+        this.keys = keys
+        this.numOfKeys = keys.length
+    }
+    
+
+    build() {
+        dungeon.drawImage(this.image, this.position.x, this.position.y);
+    }
+
+    unlock() {
+        this.keys.forEach((mons)=>{
+            if(this.numOfKeys > 0 && !mons.isAlive){
+                --this.numOfKeys;
+            }
+        })
+    }
+} 
+
 //door
-const door1 = new Wall (codeStrct.door, {
+const door1 = new DungeonDoor (codeStrct.door, {
     position: {
         x: 384,
         y: 496
     }
-})
+}, 
+[mons1, mons2])
 
-const door2 = new Wall (codeStrct.door, {
+const door2 = new DungeonDoor (codeStrct.door, {
     position: {
         x: 384,
         y: 352
     }
-})
+},
+[mons3, mons4, mons5, mons6])
 
-const door3 = new Wall (codeStrct.door, {
+const door3 = new DungeonDoor (codeStrct.door, {
     position: {
         x: 384,
         y: 112
     }
-})
+},
+[mons7, mons8])
+
 const doors = [door1,door2,door3]

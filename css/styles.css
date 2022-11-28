@@ -203,12 +203,16 @@ footer > p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    opacity: 1;
+    /* opacity: 1; */
     /* transition: opacity 1s; */
     border: black solid 10px;
     background: url("../images/wall_hole_1.png");
     background-size: 100px;
     display: none;
+}
+
+#hangManLost {
+    
 }
 
 
