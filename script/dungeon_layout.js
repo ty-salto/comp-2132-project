@@ -28,7 +28,7 @@ codeStrct.error.onload = function(){
 }
 
 codeStrct.door.src = `./images/doors_leaf_closed.png`;
-codeStrct.door.setAttribute(`class`, `doorClose`) 
+codeStrct.door.setAttribute(`class`, `doorClosed`) 
 codeStrct.door.onload = function(){
     console.log(`${codeStrct.door.src}`);
 }
