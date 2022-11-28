@@ -55,7 +55,7 @@ exitGameBtn.disabled = true;
 rollbtn.addEventListener("click", function(){
 
 
-    if (roundCnt > 3) {
+    if (roundCnt == 3) {
         isLastRound = true;
     }
 
