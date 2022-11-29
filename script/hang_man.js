@@ -205,8 +205,12 @@ rtrnGmeBtn.addEventListener(`click`, function() {
 
 })
 
-function resetHangman() {
-
+function disableAllKeys() {
+    console.log(`${document.querySelectorAll(`.keys2`).length}`)
+    document.querySelectorAll(`.keys2`).forEach((keyBtn)=>{
+        keyBtn.disabled = true;
+        console.log(`${keyBtn.disabled}`)
+    })
 }
 
 function hangManAnimate() {
@@ -236,6 +240,7 @@ function hangManAnimate() {
         playChar.position.y = 764;
         selectedWord = "";
         getRandomWord();
+        disableAllKeys();
 
     } else if ( wordContainer.innerText === selectedWord) {
         hangManUnlocking.style.display = `none`;
@@ -244,6 +249,7 @@ function hangManAnimate() {
         returnUnlock();
         selectedWord = "";
         getRandomWord();
+        disableAllKeys();
         
         ++doorIndex;
 
