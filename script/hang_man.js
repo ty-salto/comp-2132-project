@@ -234,6 +234,8 @@ function hangManAnimate() {
         //hangManPlayer.setAttribute(`style`, `transform: rotate(90deg);`);
         playChar.position.x = 384;
         playChar.position.y = 764;
+        selectedWord = "";
+        getRandomWord();
 
     } else if ( wordContainer.innerText === selectedWord) {
         hangManUnlocking.style.display = `none`;

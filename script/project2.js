@@ -1,3 +1,6 @@
+const gameInstruction = document.getElementById("gameInstruction");
+const gameInstrBtn = document.getElementById("closeInstBtn");
+
 let count = 0;
 let imgCnt = 0;
 let isDiceActive = false;
@@ -77,7 +80,11 @@ function dungeonAnimate(){
 
 
 onload = ()=>{
-    gameStartHandler = requestAnimationFrame(dungeonAnimate);
     dungeonGenerator();
     console.log(`h = ${mons1.image.height}`);
 }
+
+gameInstrBtn.addEventListener(`click`, ()=>{
+    gameInstruction.style.display = `none`;
+    gameStartHandler = requestAnimationFrame(dungeonAnimate);
+});

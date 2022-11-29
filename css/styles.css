@@ -97,7 +97,6 @@ footer > p {
 }
 
 /* ------ .class Selectors ------ */
-
 .keys2 {
     width: 50px;
     height: 50px;
@@ -108,8 +107,37 @@ footer > p {
     justify-content: center;
     gap: 10%;
 }
-/* ------ #id Selectors ------ */
 
+/* ------ #id Selectors ------ */
+#gameInstruction {
+    height: 900px;
+    width: 700px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* opacity: 1; */
+    /* transition: opacity 1s; */
+    border: black solid 10px;
+    background: url("../images/wall_hole_1.png");
+    background-size: 100px;
+    display: inline;
+}
+
+/* possible mixins2 */
+#instructContainer {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 5%;
+}
+
+/* possible mixins */
+#instructions {
+    background: black; 
+    width: 600px; 
+    height: 750px; 
+}
 
 #upperKeys2, #midKeys2, #lowerKeys2 {
     display: flex;
@@ -119,6 +147,7 @@ footer > p {
     margin: 10px 0;
     
 }
+
 #dungeonCrawler {
     position: relative;
     height: 800px;
@@ -155,6 +184,9 @@ footer > p {
     display: none;
 }
 
+
+
+/* possible mixins2 */
 #diceBattleContainer {
     display: flex; 
     flex-direction: column; 
@@ -162,6 +194,7 @@ footer > p {
     padding-top: 5%;
 }
 
+/* possible mixins */
 #diceCharBattle{
     background: black; 
     width: 500px; 
@@ -170,20 +203,19 @@ footer > p {
 }
 
 
-
+/* possible mixins */
 #diceYouWin {
     background: black; 
     width: 500px; 
     height: 400px; 
-    justify-content: center;
     display: none;
 }
 
+/* possible mixins */
 #diceYouLost{
     background: black; 
     width: 500px; 
     height: 400px; 
-    justify-content: center;
     display: none;
 }
 
