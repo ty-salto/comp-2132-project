@@ -168,7 +168,6 @@ function diceAnimate() {
 
     if(isLastRound)
     {
-        
         diceCharaBttle.setAttribute(`style`, `display: none;`);
         if(p1TotalScore>p2TotalScore){
             diceWin.setAttribute(`style`, `display: inline;`);
