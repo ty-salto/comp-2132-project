@@ -39,14 +39,15 @@ codeStrct.doorOpen.onload = function(){
     console.log(`${codeStrct.doorOpen.src}`);
 }
 
+//canvas dimensions
 canvas.width = 800;
 canvas.height = 800;
-
 character.width = 800;
 character.height = 800;
 
 console.log(`${canvas.width} ${canvas.height}`);
 
+//class for dungeon flooe
 class DungeonFloor {
     constructor(image, {position}){
         this.image = image
@@ -58,6 +59,7 @@ class DungeonFloor {
     }
 } 
 
+//class for dungeon door
 class DungeonDoor {
     constructor(image, {position}, keys=[]){
         this.image = image
@@ -65,7 +67,6 @@ class DungeonDoor {
         this.keys = keys
         this.numOfKeys = keys.length
     }
-    
 
     build() {
         dungeon.drawImage(this.image, this.position.x, this.position.y);
@@ -80,7 +81,7 @@ class DungeonDoor {
     }
 } 
 
-//door
+//door classes
 const door1 = new DungeonDoor (codeStrct.door, {
     position: {
         x: 384,
@@ -105,4 +106,5 @@ const door3 = new DungeonDoor (codeStrct.door, {
 },
 [mons7, mons8])
 
+//door Array
 const doors = [door1,door2,door3]

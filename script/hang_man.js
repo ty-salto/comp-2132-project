@@ -1,38 +1,22 @@
-const keyboard = document.getElementById("keyBoard") //changed
-const hint = document.getElementById("hint-container")
-// const hintInfo = document.getElementById("hintinfo-container")
-const wordContainer = document.getElementById("word-container")
-const hangManMons = document.getElementById("hangManMons")
-const hangManPlayer = document.getElementById("hangManPlayer");
+const keyboard         = document.getElementById("keyBoard");
+const hint             = document.getElementById("hint-container");
+const wordContainer    = document.getElementById("word-container");
+const hangManMons      = document.getElementById("hangManMons");
+const hangManPlayer    = document.getElementById("hangManPlayer");
 const hangManUnlocking = document.getElementById("hangManUnlocking");
-const hangManUnlock = document.getElementById("hangManUnlock");
-const hangManDead = document.getElementById("hangManDead");
-const rtrnGmeBtn = document.getElementById("returnGamebtn");
-const keyboardKeys = document.querySelectorAll(`.keys2`);
-
-// const gameStatus = document.getElementById("popup-content")
-// const correctWord = document.getElementById("popup-span")
-
-// const hintBtn = document.getElementById("hint-btn")
-// const resetBtn = document.getElementById("reset-btn")
-
-// const popup = document.getElementById("popup");
-
-// const playAgainBtn = document.getElementById("playagain-btn")
+const hangManUnlock    = document.getElementById("hangManUnlock");
+const hangManDead      = document.getElementById("hangManDead");
+const rtrnGmeBtn       = document.getElementById("returnGamebtn");
+const keyboardKeys     = document.querySelectorAll(`.keys2`);
 
 let selectedWord = "";
 let livesCounter = 6 ;
-let doorIndex = 0;
-// let counter;
-// livesContainer.innerHTML = livesCounter;
-// popup.setAttribute('hidden', true);
+let doorIndex    = 0;
 
 let hangManHandler;
 let monsMaxDistance = 0;
-let monsDistance = 10;
+let monsDistance    = 10;
 rtrnGmeBtn.disabled = true;
-// //hide pop up on open, not sure how better to do this
-
 
 // key = word, value = hint
 const wordsToGuess = new Map([
@@ -53,8 +37,6 @@ function getRandomWord(){
     console.log(selectedWord);
     return selectedWord;
 }
-//todo
-// set up game play/while playing etc
 
 //letter buttons
 //changed
@@ -119,7 +101,7 @@ function handleGuess(chosenLetter){
 
 }
 
-    //decreases the lives by 1
+//decreases the lives by 1
 function decreaseLives() {
     livesCounter --;
     console.log(livesCounter);
@@ -132,7 +114,7 @@ function returnUnlock () {
     doors[doorIndex].image = codeStrct.doorOpen;
 }
 
-
+// return botton event listener
 rtrnGmeBtn.addEventListener(`click`, function() {
     cancelAnimationFrame(hangManHandler);
     dungeonGenerator();
@@ -148,6 +130,7 @@ rtrnGmeBtn.addEventListener(`click`, function() {
     rtrnGmeBtn.disabled = true;
 })
 
+// function to diable all keys
 function disableAllKeys() {
     console.log(`${document.querySelectorAll(`.keys2`).length}`)
     document.querySelectorAll(`.keys2`).forEach((keyBtn)=>{
@@ -156,6 +139,7 @@ function disableAllKeys() {
     })
 }
 
+// Animate the hangman game
 function hangManAnimate() {
     hangManPlayer.src = `./images/knight_f_idle_anim_f${imgCnt}.png`;
     hangManMons.src = `./images/sprite_monster/lizard_m_run_anim_f${imgCnt}.png`;
@@ -167,6 +151,7 @@ function hangManAnimate() {
     } else {
         count = 0;
     }
+    
     imgCnt = Math.floor(count/4);
 
     if(monsDistance < monsMaxDistance && monsDistance < 70)
@@ -198,10 +183,8 @@ function hangManAnimate() {
         ++doorIndex;
 
     }    
-
     hangManHandler = requestAnimationFrame(hangManAnimate);
 }
-
 
 getRandomWord();
 generateButtons();

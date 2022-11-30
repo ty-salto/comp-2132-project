@@ -1,4 +1,4 @@
-
+// dungeon object code
 const code = {
     walls: `w`,
     floor: `f`
@@ -6,6 +6,7 @@ const code = {
 
 const pattern = []
 
+// layout of the dungeon floor
 const layout = [
     `walls`,50,`in`,`tab`,
 
@@ -74,13 +75,11 @@ const layout = [
     `walls`,24,`floor`,2,`walls`,24,`in`,`tab`,
     `walls`,24,`floor`,2,`walls`,24,`in`,`tab`,
     `walls`,24,`floor`,2,`walls`,24,`in`,`tab`,
-    
-
 ]
 
+// build he code for dugeon floor
 let arr = [];
 for (let i = 0; i < layout.length; i++) {
-
     switch (layout[i]) {
         case `tab`:
             arr = []

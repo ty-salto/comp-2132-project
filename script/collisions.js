@@ -1,17 +1,17 @@
 const diceBattle = document.getElementById(`diceBattle`);
 
+//wall collision
 function collisionDetection(position) {
-    //wall collision
     if (position == `w`){
         return false;
     }
     return true;
 }
+
 //door collision
 function doorDetection(x, y){
     let isDoor = false;
 
-    //32x32 collision
     doors.forEach((element)=>{
         if(((element.position.x == x && element.position.y == y-12) ||
         (element.position.x == x-16 && element.position.y == y-12)) &&
@@ -31,7 +31,6 @@ function doorDetection(x, y){
 }
 
 //Monster to detect player
-
 let monsterIndex = 0;
 let playerDetected = false; 
 
@@ -59,20 +58,12 @@ function monsterDetect(monster, index) {
         monster.position.y + height >= playChar.position.y + 20) &&
         monster.position.x <= playChar.position.x &&
         monster.position.x + width > playChar.position.x && !playerDetected) {
-        console.log(`We detect the knight!`);
         playerDetected = true;
         diceBattle.setAttribute(`style`, `display: inline;`)
         monsterIndex = index;
-        // while(diceBattle.firstChild) {
-        //     diceBattling.firstChild.remove();
-        // }
-
-
-  
-
-
-
+        
         console.log(monsterIndex);
+        console.log(`We detect the knight!`);
     }
 
 }

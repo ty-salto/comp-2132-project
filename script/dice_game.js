@@ -1,6 +1,3 @@
-// const delay  = 2000;
-// const oneSec = 1000;
-
 const diceCharBattle = document.getElementById(`diceAmogus`);
 const diceCharWin = document.getElementById(`diceCharWin`);
 const diceCharLost = document.getElementById(`diceCharLost`);
@@ -33,35 +30,15 @@ let p2TotalScore   = 0;
 let isLastRound    = false;
 let isLost         = false;
 
-
 exitGameBtn.disabled = true;
-//rollbtn.disabled    = false;
+console.log(rollbtn);
 
-
-// setTimeout(function(){
-//     $popup.fadeIn(oneSec) 
-// },delay);
-
-// closePopUp.addEventListener("click", function(){
-//     $popup.fadeOut("slow");
-//     rollbtn.disabled = false;
-
-// });
-    console.log(rollbtn);
-
-
-
-
+//event button to roll the dice
 rollbtn.addEventListener("click", function(){
-
-
     round.innerHTML = `Round: ${roundCnt}`;
-
 
     if (!isLastRound){
         console.log(`cliked`);
-
-        
 
         let randomNum1 = getRndNum();
         let randomNum2 = getRndNum();
@@ -98,26 +75,14 @@ rollbtn.addEventListener("click", function(){
         p2Total.innerHTML =  p2TotalScore;
 
         ++roundCnt; 
-
-
     }
-        if (roundCnt === 4) {
-            isLastRound = true;
-        }
-
-   
+    
+    if (roundCnt === 4) {
+        isLastRound = true;
+    }
 })
 
-// newGamebtn.addEventListener("click", resetGame)
-// function updateScore(){
-//     // to do?
-//     // p1Score.innerHTML = p1CurrentScore;
-//     // p1TotalScore = p1TotalScore + p1CurrentScore;
-//     // p1Total.innerHTML =  p1TotalScore;
-
-
-// }
-
+// event button to exit the game
 exitGameBtn.addEventListener(`click`, function(){
     const newMonsArr = [];
     resetGame();
@@ -145,19 +110,15 @@ exitGameBtn.addEventListener(`click`, function(){
     cancelAnimationFrame(diceHandler)
     gameStartHandler = requestAnimationFrame(dungeonAnimate);
     keyboardPause = false;
-    // count = 0;
 })
 
 function resetGame(){
-
     p1Score.innerHTML = 0
     p1Total.innerHTML = 0
     p1TotalScore = 0
-
     p2Score.innerHTML = 0
     p2Total.innerHTML = 0
     p2TotalScore = 0
-
     player1Dice1.innerHTML = 0;
     player1Dice2.innerHTML = 0;
     player2Dice1.innerHTML = 0;
@@ -170,19 +131,17 @@ function resetGame(){
     diceLost.setAttribute(`style`, `display: none;`);
     exitGameBtn.disabled = true;
     rollbtn.disabled = false;
-    // $("#round").text(`Round: ${round}`).css("border", "none");
-    // rollbtn.disabled = false;
-
 }
 
+//function to get random number
 function getRndNum(){
     return (Math.floor(Math.random()*10000)%6)+1;
 }
 
+//function to animate the dice game
 function diceAnimate() {
     diceCharBattle.src = `./images/knight_f_run_anim_f${imgCnt}.png`;
     diceCharWin.src = `./images/knight_f_run_anim_f${imgCnt}.png`;
-
 
     if(monsters[monsterIndex].type == `slime`) {
         diceMons.src =`./images/sprite_monster/swampy_idle_anim_f${imgCnt}.png`;

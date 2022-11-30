@@ -1,7 +1,4 @@
-//monster
-//monster array
-
-
+// Monster class for the dungeon
 class Monster{
     constructor(image,{position}, type, isAlive=true){
         this.image = image;
@@ -23,6 +20,7 @@ class Monster{
     }
 } 
 
+// Image for the monsters
 const jeffDOrc = new Image();
 jeffDOrc.setAttribute(`class`, `bossClass`) 
 
@@ -41,7 +39,7 @@ lizard.setAttribute(`class`, `underling slime`)
 const orcWar = new Image();
 orcWar.setAttribute(`class`, `underling slime`) 
 
-
+// monster object classes
 const boss = new Monster(jeffDOrc, {
     position: {
         x: 384,
@@ -104,7 +102,6 @@ const mons8 = new Monster(lizard, {
         y: 272
     }
 }, `lizard`)
-
 
 //Array of Monsters
 let monsters = [boss,mons1,mons2,mons3,mons4,mons5,mons6,mons7,mons8];

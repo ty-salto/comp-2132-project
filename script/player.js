@@ -1,4 +1,4 @@
-//player
+//player class
 class Player {
     constructor(image, {position}){
         this.image = image
@@ -17,12 +17,14 @@ class Player {
     }
 } 
 
+// player image
 const knight = new Image();
 knight.setAttribute(`class`, `player`);
 knight.onload = function(){
     console.log(`${knight.src}`);
 }
 
+// player object classes
 const playChar = new Player(knight, {
     position: {
         x:384,

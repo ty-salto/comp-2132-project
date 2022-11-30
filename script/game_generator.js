@@ -1,3 +1,4 @@
+// generate the whole dugeon gamme.
 function dungeonGenerator(){
     pattern.forEach((elem, i)=>{
         elem.forEach((subs, j)=>{
@@ -26,8 +27,6 @@ function dungeonGenerator(){
     })
     
 }
-
-
 
 function spriteGenerator (){
     monsters.forEach((mons)=>{

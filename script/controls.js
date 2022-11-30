@@ -1,5 +1,7 @@
 let isPause = false;
 let keyboardPause = false;
+
+//event to move the character using WASD
 addEventListener(`keydown`,function(event){
     if(!pauseKeyboardEvent && !keyboardPause){
         console.log(event.key);
@@ -42,23 +44,15 @@ addEventListener(`keydown`,function(event){
                 console.log(`y = ${playChar.position.y}`);
                 console.log(`y = ${playChar.position.y+20}`);
                 break;
-            case `p`://pause
-                if (!isPause) {
-                    cancelAnimationFrame(gameStartHandler);
-                    isPause = true;
-                } else {
-                    gameStartHandler = requestAnimationFrame(animate);
-                    isPause = false;
-                }
-                break;
-
         }
     }
+
     // reset the detection of monsters for player
     playerDetected = false;
 })
 
 let pauseKeyboardEvent = false;
+// event to limit the movement one at a time.
 addEventListener(`keyup`,function(event){
     console.log(event.key);
     switch(event.key){
