@@ -28,8 +28,9 @@ let doorIndex = 0;
 // popup.setAttribute('hidden', true);
 
 let hangManHandler;
-let monsMaxDistance;
+let monsMaxDistance = 0;
 let monsDistance = 10;
+rtrnGmeBtn.disabled = true;
 // //hide pop up on open, not sure how better to do this
 
 
@@ -115,72 +116,17 @@ function handleGuess(chosenLetter){
     } else {
         decreaseLives()
     }
-    //checkGameStatus();
+
 }
 
     //decreases the lives by 1
-    function decreaseLives() {
-        livesCounter --;
-        console.log(livesCounter);
-        monsMaxDistance = 70 -(12*(livesCounter-1));
+function decreaseLives() {
+    livesCounter --;
+    console.log(livesCounter);
+    monsMaxDistance = 70 -(12*(livesCounter-1));
         
-        console.log(`Distance= ${hangManMons.style.left}`);
-        
-    }
-
-//     // checks if game is won or lost
-//     function checkGameStatus() {
-//         correctWord.innerHTML = selectedWord;
-//         resetBtn.disabled = false;
-//         // resetBtn.setAttribute('disabled', false);
-
-//         if (livesCounter == 0 ) {
-//             console.log("inside game status lost");
-//             gameStatus.innerHTML = "You lost!!";
-//             keyboard.disabled = true;
-//             showPopUp();
-//         }
-//         if ( wordContainer.innerText === selectedWord) {
-//             gameStatus.innerHTML = "You won!!";
-//             showPopUp();
-//         }        
-//     }
-
-//     //shows hint for word to be guessed
-//     hintBtn.addEventListener('click', function () {
-//         hintInfo.innerHTML = wordsToGuess.get(selectedWord);
-//         hintInfo.removeAttribute('hidden');
-//         hintBtn.disabled = true;
-        
-//     })
-
-//     //sets new word to be guessed
-//     //
-//     resetBtn.addEventListener('click',function(){
-//         reset();
-//     } )
-
-//     //resets to new word, lives back to 6
-//     function reset(){
-//         livesCounter = 6;
-//         livesContainer.innerHTML = livesCounter;
-//         hintBtn.disabled = false;
-//         hintInfo.setAttribute('hidden', true);
-//         resetBtn.disabled = false;
-//         getRandomWord();
-//         generateButtons();
-
-//     }
-
-//     playAgainBtn.addEventListener('click', function(){
-//         reset();
-//         popup.setAttribute('hidden', true);
-//     })
-
-//     // show pop up, with end of game status
-//     function showPopUp(){
-//         popup.removeAttribute('hidden');
-//   }
+    console.log(`Distance= ${hangManMons.style.left}`);
+}
 
 function returnUnlock () {
     doors[doorIndex].image = codeStrct.doorOpen;
@@ -191,18 +137,15 @@ rtrnGmeBtn.addEventListener(`click`, function() {
     cancelAnimationFrame(hangManHandler);
     dungeonGenerator();
     document.getElementById(`hangMan`).style.display = `none`;
+    monsDistance = 10;
+    monsMaxDistance = 0;
     livesCounter = 6 ;
     generateButtons();
     hangManUnlocking.style.display = `inline`;
     hangManDead.style.display = `none`;
     hangManUnlock.style.display = `none`;
     hangManMons.style.left = `10%`;
-
-
-
-
-
-
+    rtrnGmeBtn.disabled = true;
 })
 
 function disableAllKeys() {
@@ -235,12 +178,12 @@ function hangManAnimate() {
         hangManUnlocking.style.display = `none`;
         hangManDead.style.display = `inline`;
         rtrnGmeBtn.disabled = false;
-        //hangManPlayer.setAttribute(`style`, `transform: rotate(90deg);`);
         playChar.position.x = 384;
         playChar.position.y = 764;
         selectedWord = "";
         getRandomWord();
         disableAllKeys();
+        rtrnGmeBtn.disabled = false;
 
     } else if ( wordContainer.innerText === selectedWord) {
         hangManUnlocking.style.display = `none`;
@@ -250,6 +193,7 @@ function hangManAnimate() {
         selectedWord = "";
         getRandomWord();
         disableAllKeys();
+        rtrnGmeBtn.disabled = false;
         
         ++doorIndex;
 

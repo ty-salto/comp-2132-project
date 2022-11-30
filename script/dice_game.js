@@ -55,7 +55,7 @@ exitGameBtn.disabled = true;
 rollbtn.addEventListener("click", function(){
 
 
-        round.innerHTML = `Round: ${roundCnt}`;
+    round.innerHTML = `Round: ${roundCnt}`;
 
 
     if (!isLastRound){
@@ -82,7 +82,7 @@ rollbtn.addEventListener("click", function(){
         }
 
         p1Score.innerHTML = p1CurrentScore;
-        p1TotalScore      = p1TotalScore + p1CurrentScore;
+        p1TotalScore      += p1CurrentScore;
         p1Total.innerHTML =  p1TotalScore;
 
         if (randomNum3 == 1|| randomNum4 == 1) {
@@ -191,7 +191,7 @@ function diceAnimate() {
     } else if(monsters[monsterIndex].type == `demon`) { 
         diceMons.src =`./images/sprite_monster/chort_idle_anim_f${imgCnt}.png`;
     } else if(monsters[monsterIndex].type == `lizard`) {
-        diceMons.src =`./images/sprite_monster/lizard_f_idle_anim_f${imgCnt}.png`;
+        diceMons.src =`./images/sprite_monster/goblin_idle_anim_f${imgCnt}.png`;
     } else if(monsters[monsterIndex].type == `orcWar`) {
         diceMons.src =`./images/sprite_monster/masked_orc_idle_anim_f${imgCnt}.png`;
     } else if(monsters[monsterIndex].type == `orc`) {
@@ -213,18 +213,25 @@ function diceAnimate() {
         diceCharaBttle.setAttribute(`style`, `display: none;`);
         if(p1TotalScore>p2TotalScore){
             diceWin.setAttribute(`style`, `display: inline;`);
-        }
-        else if(p2TotalScore >= p1TotalScore)
-        {
+            rollbtn.disabled = true;
+            exitGameBtn.disabled = false;
+        } else if(p2TotalScore > p1TotalScore) {
             diceLost.setAttribute(`style`, `display: inline;`);
             
             diceCharLost.setAttribute(`style`, `transform: rotate(90deg);`)
             playChar.position.x = 384;
             playChar.position.y = 764;
             isLost = true;
+            rollbtn.disabled = true;
+            exitGameBtn.disabled = false;
+        } else if(p1TotalScore == p2TotalScore) {
+            diceCharaBttle.setAttribute(`style`, `display: inline;`);
+            round.innerHTML = `Draw, Roll Again!`
+            roundCnt = 1;
+            isLastRound = false;
+            p1TotalScore   = 0;
+            p2TotalScore   = 0;
         }
-        rollbtn.disabled = true;
-        exitGameBtn.disabled = false;
     }
 
     diceHandler = requestAnimationFrame(diceAnimate);

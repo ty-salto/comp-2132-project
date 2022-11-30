@@ -38,7 +38,7 @@
 	<body>
 		<div id="wrapper">
 			<header>
-				<h1>COMP 2132 - Assignment 08</h1>
+				<h1>COMP 2132 - Final Project</h1>
 			</header>
 			
 			<main>
@@ -49,6 +49,7 @@
 			</main>
 			<footer>
 				<p>This page was created for educational purpose.</p>
+				<p>Author: Joseph Tyronne Salto and Georgina D'souza</p>
 				<p>COMP 2032 - Web Development JavaScript - Fall 2022</p>
 			</footer>
 		</div>
@@ -85,13 +86,10 @@
 					</ul>
 				</div>
 
-				<div style="display: flex; flex-direction: column; align-items: center;">
+				<div id="instBtn">
 						<button type="button" class="button" id="closeInstBtn">Exit</button>
 				</div>
 			</div>
-		</div>
-
-
 		</div>
 		
 		<div id="diceBattle">
@@ -123,12 +121,11 @@
 
 				
 				<!--Dice Battle stats-->
-				<div style="display: flex; background:rgb(122, 104, 81); margin: 0 5%;">
-					<div style="display: flex; flex-direction: column; align-items: center;">
-						<h3 id="msg">YOU</h3>
+				<div id="diceStats">
+					<div id="playerStats">
+						<h3 id="playerMsg">YOU</h3>
 						
-						<div class="diceContainer">
-							
+						<div class="diceContainer">	
 							<img src="./images/dice/d1.png" alt="p1dice1" id="p1Dice1" class="dice active" style="width: 10%; height: auto;">
 	  
 						  	<img src="./images/dice/d2.png" alt="p1die" id="p1Dice2" class="dice active" style="width: 10%; height: auto;">
@@ -142,8 +139,8 @@
 						</h3>
 					</div>
 
-					<div style="display: flex; flex-direction: column; align-items: center;">
-						<h3 id="msg">Opponent</h3>
+					<div id="monsStats">
+						<h3 id="opponentMsg">Opponent</h3>
 						
 						<div class="diceContainer">
 							<img src="./images/dice/d1.png" alt="p2dice1" id="p2Dice1" class="dice active" style="width: 10%; height: auto;">
@@ -161,89 +158,81 @@
 				</div>
 
 				<!--Dice buttons-->
-				<div style="display: flex; flex-direction: column; align-items: center;">
+				<div id="diceBtnContainer">
 					<button type="button" class="button" id="rollbtn">Roll Dice</button>
         			<div>
-<!-- 						<button type="button" class="button" id="newGamebtn">New Game</button> -->
 						<button type="button" class="button" id="exitGamebtn">Return</button>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
 		<div id="hangMan">
-			<div style="padding: 15%;">
+			<div id="hangManContainer">
 				<div id="hangManUnlocking">
-					<div style="background: black; width: 500px; height: 400px; padding: auto;">
-						<h2>Find the word to Unlock!</h2>
-						
-						
-
-						<img src="./images/sprite_monster/lizard_f_idle_anim_f0.png" alt="" style=" width: 5%; height: auto; position: relative;left: 10%;" id = "hangManMons">
-						<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 5%; height: auto; position: relative;right: -70%;" id = "hangManPlayer">
-						<img src="./images/doors_leaf_closed.png" alt="" style=" width: 10%; height: auto; position: relative; right: -70%;" id = "hangManDoor">
-
-
+					<h2>Find the word to Unlock!</h2>
+					
+					<div id="hangManAnime"></div>
+					<img src="./images/sprite_monster/lizard_f_idle_anim_f0.png" alt="" style=" width: 5%; height: auto; position: relative;left: 10%;" id = "hangManMons">
+					<img src="./images/knight_f_run_anim_f0.png" alt="" style=" width: 5%; height: auto; position: relative;right: -70%;" id = "hangManPlayer">
+					<img src="./images/doors_leaf_closed.png" alt="" style=" width: 10%; height: auto; position: relative; right: -70%;" id = "hangManDoor">
+					<div id="HangManWordGuess">
 						<div id="word-container"></div>
 						<p id="hint-container">Hint: </p>
 					</div>
-							
-					
-				</div>
+				</div>	
 
-				<div id="hangManUnlock" style="display: none;">
+				<div id="hangManUnlock">
 					<h2>Door Unlock!</h2>
 					<div id="guessedWord"></div>
-					<img src="./images/doors_leaf_open.png" alt="" >
+					<div class="diceBattling">
+						<img src="./images/doors_leaf_open.png" alt="" class="diceChar" >
+					</div>
 				</div>
-
-				<div id="hangManDead" style="display: none;">
+	
+				<div id="hangManDead">
 					<h2>Monster Caught you! Too Slow!</h2>
-					<img  class="diceChar" id="hangManLost" src="./images/knight_f_run_anim_f0.png" alt="">
+					<div class="diceBattling">
+						<img  class="diceChar" id="hangManLost" src="./images/sprite_monster/lizard_m_run_anim_f0.png" alt="">
+					</div>
 				</div>
 
-				<div id="keyBoard">
-					<!-- <div id="upperKeys2">
-						<button type="button" class="keys2">Q</button>
-						<button type="button" class="keys2">W</button>
-						<button type="button" class="keys2">E</button>
-						<button type="button" class="keys2">R</button>
-						<button type="button" class="keys2">T</button>
-						<button type="button" class="keys2">Y</button>
-						<button type="button" class="keys2">U</button>
-						<button type="button" class="keys2">I</button>
-						<button type="button" class="keys2">O</button>
-						<button type="button" class="keys2">P</button>
-					</div>
-					<div id="midKeys2">
-						<button type="button" class="keys2">A</button>
-						<button type="button" class="keys2">S</button>
-						<button type="button" class="keys2">D</button>
-						<button type="button" class="keys2">F</button>
-						<button type="button" class="keys2">G</button>
-						<button type="button" class="keys2">H</button>
-						<button type="button" class="keys2">J</button>
-						<button type="button" class="keys2">K</button>
-						<button type="button" class="keys2">L</button>
-					</div>
-					<div id="lowerKeys2">
-						<button type="button" class="keys2">X</button>
-						<button type="button" class="keys2">C</button>
-						<button type="button" class="keys2">V</button>
-						<button type="button" class="keys2">B</button>
-						<button type="button" class="keys2">Z</button>
-						<button type="button" class="keys2">N</button>
-						<button type="button" class="keys2">M</button>
-					</div> -->
-				</div>
+				<div id="keyBoard"></div>
 
-				<div style="display: flex; flex-direction: column; align-items: center;">
+				<div id="hangManBtnContainer">
 					<button type="button" class="button" id="returnGamebtn" disabled>Return</button>
 				</div>
-
 			</div>
+		</div>
+
+		<div id="gameEndCredits">
+			<div id="endCreditsContainer">			
+				<div id="endCredits">
+					<h2 id="CreditHeading">YOU COMPLETED THE GAME!!!!</h2>
+					<div id="price">
+						<img src="./images/coin_anim_f0.png" alt="" style="width: 7%; height: auto;">
+						<img src="./images/chest_full_open_anim_f2.png" alt="" style="width: 30%; height: auto;">
+						<img src="./images/coin_anim_f0.png" alt="" style="width: 7%; height: auto;">
+					</div>
+					<h4>Game has been made by:</h4>
+					<p>Joseph Tyronne Salto</p>						<p>Georgina D'Souza</p>
+					</ul>
+
+					<h4>Special Thanks to:</h4>
+					<p>Jeff Parker</p>
+
+					<h4>Image credits to:</h4>
+					<p>user: 0x72</p>
+					<p><a href="https://0x72.itch.io/">https://0x72.itch.io/</a></p>
+
+					
+
+				</div>
 			
+				<div id="endCreditBtn" >
+					<button type="button" class="button" id="playAgain">Play Again!</button>
+				</div>
+			</div>	
 		</div>
 	</body>
 

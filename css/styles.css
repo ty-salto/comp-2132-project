@@ -1,277 +1,368 @@
-@charset "utf-8";
 /* ------ Fonts ------ */
 @import url("fonts.css");
 /* ------ Browser Resets ------ */
 @import url("normalize.css");
-
+/* ------ Variables ------ */
+/* universal palette */
+/* off black */
+/* universal color for links*/
+/* universal color for hover links*/
+/* universal color for visited links*/
 /* ------ Setting HTML Default ------ */
 html {
-    font-size:16px;
-    box-sizing: border-box;
-    background-color: #c1d0dc;
-    color: var(--text-color);
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #c1d0dc;
+  color: rgb(47, 47, 53);
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
-}
-
-/* ------ Variables ------ */
-:root{
-    /* page specific colors */    
-    --primary-color:#043c6c;
-    --secondary-color: azure;
-    
-    /* universal palette */
-    --text-color:rgb(47, 47, 53); /* off black */
-    --link-color:blue;            /* universal color for links*/    
-    --link-hover-color:coral;     /* universal color for hover links*/ 
-    --link-visit-color:purple;    /* universal color for visited links*/ 
-
-    /* name found palette */
-    --name-found-color-border: green;
-    --name-found-color-background: lightgreen;
-
-    /* error palette */
-    --error-color-border: rgb(131, 1, 1);
-    --error-color-background: rgba(236, 155, 155, 0.568);
-    --error-input-color-background: rgba(231, 191, 191, 0.568);
-
-    /* border color */
-    --border-color-one: black;
-    --border-color-two: ivory;
-    --border-color-shadow:  rgba(119, 119, 119, 0.808);
-
-    /* pop-up color */
-    --pop-up-close-btn-color: rgb(132, 193, 233);
+  box-sizing: inherit;
 }
 
 /* ------ HTML Element Selectors ----- */
 h1, h2 {
-    font-family: 'kanit';
-    letter-spacing:2px;  
+  font-family: "kanit";
+  letter-spacing: 2px;
 }
 
-h2{
-    color: var(--primary-color);
-    margin-top: 10px;
-    text-decoration: underline;
-    text-align: center;
+h2 {
+  color: #043c6c;
+  margin-top: 10px;
+  text-decoration: underline;
+  text-align: center;
 }
 
 h3 {
-    font-family: 'kanit';
+  font-family: "kanit";
+  letter-spacing: 0.3em;
+  margin-top: 10px;
+  text-decoration: underline;
+  text-shadow: 0 0 2px black;
 }
 
-body
-{
-    font-family: 'Ubuntu', sans-serif;
+body {
+  font-family: "Ubuntu", sans-serif;
 }
 
 header {
-    box-shadow: 0px 12px 10px -3px var(--border-color-two);
+  box-shadow: 0px 12px 10px -3px ivory;
 }
 
-header,footer {
-     /* image from https://pngtree.com/  edited on photopea*/
-    background-image:url("../images/anime_cyber.png");
-    background-color: var(--primary-color);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px;
-    text-shadow: 0 0 2px black;    
-    color:var(--secondary-color);
+header, footer {
+  /* image from https://pngtree.com/  edited on photopea*/
+  background-image: url("../images/anime_cyber.png");
+  background-color: #043c6c;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  text-shadow: 0 0 2px black;
+  color: azure;
 }
 
 main {
-    flex: 1 ;
-    padding: 20px;
+  display: flex;
+  padding: 20px;
 }
 
 footer {
-    box-shadow: 0px -12px 10px -3px var(--border-color-two);
+  box-shadow: 0px -12px 10px -3px ivory;
 }
 
 footer > p {
-    margin: 0;
+  margin: 0;
 }
 
 /* ------ .class Selectors ------ */
 .keys2 {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .diceBattling {
-    display: flex;
-    justify-content: center;
-    gap: 10%;
+  display: flex;
+  justify-content: center;
+  gap: 20%;
+  padding-top: 50px;
+}
+
+.diceContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+/* ------ #id Selectors ------ */
+#gameEndCredits div div h4 {
+  font-size: larger;
+  text-decoration: underline;
+  color: azure;
+  margin-bottom: 10px;
+}
+#gameEndCredits div div p {
+  margin-top: 0;
+  color: azure;
+  margin-bottom: 5px;
 }
 
 /* ------ #id Selectors ------ */
 #gameInstruction {
-    height: 900px;
-    width: 700px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    /* opacity: 1; */
-    /* transition: opacity 1s; */
-    border: black solid 10px;
-    background: url("../images/wall_hole_1.png");
-    background-size: 100px;
-    display: inline;
+  height: 900px;
+  width: 700px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: black solid 10px;
+  background: url("../images/wall_hole_1.png");
+  background-size: 100px;
+  display: inline;
+}
+
+#gameEndCredits {
+  height: 900px;
+  width: 700px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: black solid 10px;
+  background: url("../images/wall_hole_1.png");
+  background-size: 100px;
+  display: none;
 }
 
 /* possible mixins2 */
-#instructContainer {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    padding-top: 5%;
+#instructContainer, #endCreditsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
 }
 
 /* possible mixins */
-#instructions {
-    background: black; 
-    width: 600px; 
-    height: 750px; 
+#instructions, #endCredits {
+  background: black;
+  width: 600px;
+  height: 750px;
+  color: azure;
+  padding: 5%;
+}
+
+#endCredits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#price {
+  padding-top: 30px;
+  width: 300px;
+  padding-left: 20%;
+}
+
+#instBtn, #endCreditBtn {
+  margin-top: 3%;
+}
+
+#instBtn *, #endCreditBtn * {
+  height: 50px;
+  width: 100px;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 #upperKeys2, #midKeys2, #lowerKeys2 {
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    gap: 5px;
-    margin: 10px 0;
-    
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  gap: 5px;
+  margin: 10px 0;
 }
 
 #dungeonCrawler {
-    position: relative;
-    height: 800px;
+  position: relative;
+  height: 800px;
+  left: 3.5%;
 }
 
 #floor {
-    /*background: url('../images/floor_1.png') fixed;*/    
-    /* max-width: 760px;
-    height: 760px; */
-    /*display: grid;
-    gap: 0;
-    grid-template-columns: 
-    auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;*/
-    position: absolute;
+  position: absolute;
 }
 
-#character{
-    position: absolute;
+#character {
+  position: absolute;
 }
 
 /* Dice battle */
 #diceBattle {
-    height: 900px;
-    width: 700px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    /* transition: opacity 1s; */
-    border: black solid 10px;
-    background: url("../images/wall_hole_1.png");
-    background-size: 100px;
-    display: none;
+  height: 900px;
+  width: 700px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: black solid 10px;
+  background: url("../images/wall_hole_1.png");
+  background-size: 100px;
+  display: none;
 }
-
-
 
 /* possible mixins2 */
 #diceBattleContainer {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
 }
 
 /* possible mixins */
-#diceCharBattle{
-    background: black; 
-    width: 500px; 
-    height: 400px;
-    display: inline; 
+#diceCharBattle {
+  background: black;
+  width: 500px;
+  height: 400px;
+  display: inline;
 }
-
 
 /* possible mixins */
 #diceYouWin {
-    background: black; 
-    width: 500px; 
-    height: 400px; 
-    display: none;
+  background: black;
+  width: 500px;
+  height: 400px;
+  display: none;
 }
 
 /* possible mixins */
-#diceYouLost{
-    background: black; 
-    width: 500px; 
-    height: 400px; 
-    display: none;
+#diceYouLost {
+  background: black;
+  width: 500px;
+  height: 400px;
+  display: none;
+}
+
+#diceStats {
+  display: flex;
+  background: rgb(122, 104, 81);
+  margin: 5% 5%;
+}
+
+#playerStats, #monsStats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#diceBtnContainer {
+  display: flex;
+  gap: 10%;
+  justify-content: center;
+  width: 300px;
+}
+
+#diceBtnContainer * {
+  height: 50px;
+  width: 100px;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .diceChar {
-    width: 30%; height: auto;
-} 
+  width: 20%;
+  height: auto;
+}
 
 #diceMons {
-    transform: scaleX(-1); 
-    width: 50%; height: auto;
+  transform: scaleX(-1);
+  width: 30%;
+  height: auto;
 }
 
 #hangMan {
-    height: 900px;
-    width: 700px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    /* opacity: 1; */
-    /* transition: opacity 1s; */
-    border: black solid 10px;
-    background: url("../images/wall_hole_1.png");
-    background-size: 100px;
-    display: none;
+  height: 900px;
+  width: 700px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: black solid 10px;
+  background: url("../images/wall_hole_1.png");
+  background-size: 100px;
+  display: none;
 }
 
-#hangManLost {
-    
+#hangManContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
 }
 
+#HangManWordGuess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+#hangManAnime {
+  margin-top: 10%;
+}
 
+#word-container {
+  font-size: 3.5em;
+  margin-top: 10%;
+}
+
+/* Mixin3 */
+#hangManUnlocking {
+  background: black;
+  width: 500px;
+  height: 400px;
+  display: inline;
+  color: white;
+}
+
+#hangManUnlock {
+  background: black;
+  width: 500px;
+  height: 400px;
+  display: none;
+}
+
+#hangManDead {
+  background: black;
+  width: 500px;
+  height: 400px;
+  display: none;
+}
+
+#keyBoard {
+  margin: 5% 5%;
+}
 
 #upperKeys2, #midKeys2, #lowerKeys2 {
-    display: flex;
-    width: 500px;
-    justify-content: center;
-    gap: 5px;
-    margin: 10px 0;
-    
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+#hangManBtnContainer * {
+  height: 50px;
+  width: 100px;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 #wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: var(--secondary-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 5px 5px black;
-
-    transition: opacity 1s;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: azure;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px 5px black;
+  transition: opacity 1s;
 }
 
 /* ------ #responsive to screen ------ */
-@media only screen and (max-width: 582px) {
-   
-  }

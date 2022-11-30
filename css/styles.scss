@@ -1,0 +1,376 @@
+@charset "utf-8";
+/* ------ Fonts ------ */
+@import url("fonts.css");
+/* ------ Browser Resets ------ */
+@import url("normalize.css");
+
+
+/* ------ Variables ------ */
+$primary_color:#043c6c;
+$secondary_color: azure;
+$backgraound_color:#c1d0dc;
+$background_dice_stats:rgb(122, 104, 81);
+    
+    /* universal palette */
+$text_color:rgb(47, 47, 53); /* off black */
+$text_color2:white;
+$text_sahadow:black;
+
+$border_color:black;
+$border_color2:ivory;
+$game_background:black;
+$link_color:blue;            /* universal color for links*/    
+$link_hover_color:coral;     /* universal color for hover links*/ 
+$link_visit_color:purple;    /* universal color for visited links*/ 
+
+@mixin game-css-style ($height, $width, $pos, $left, $right, $color_border, $border_wt) {
+    height: $height;
+    width: $width;
+    position: $pos;
+    left: $left;
+    top:$right;
+    transform: translate(-50%, -50%);
+    border: $color_border solid $border_wt;
+    background: url("../images/wall_hole_1.png");
+    background-size: 100px;
+}
+
+@mixin game-disply-style ($color_background, $width, $height) {
+    background: $color_background; 
+    width: $width; 
+    height: $height;
+}
+
+
+/* ------ Setting HTML Default ------ */
+html {
+    font-size:16px;
+    box-sizing: border-box;
+    background-color: $backgraound_color;
+    color: $text_color;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* ------ HTML Element Selectors ----- */
+h1, h2 {
+    font-family: 'kanit';
+    letter-spacing: 2px;  
+}
+
+h2{
+    color: $primary_color;
+    margin-top: 10px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'kanit';
+    letter-spacing: 0.3em;
+    margin-top: 10px;
+    text-decoration: underline;
+    text-shadow: 0 0 2px $text_sahadow; 
+    
+}
+
+body
+{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    box-shadow: 0px 12px 10px -3px $border_color2;
+}
+
+header,footer {
+     /* image from https://pngtree.com/  edited on photopea*/
+    background-image:url("../images/anime_cyber.png");
+    background-color: $primary_color;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    text-shadow: 0 0 2px $text_sahadow;    
+    color:$secondary_color;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+footer {
+    box-shadow: 0px -12px 10px -3px $border_color2;
+}
+
+footer > p {
+    margin: 0;
+}
+
+/* ------ .class Selectors ------ */
+.keys2 {
+    width: 50px;
+    height: 50px;
+}
+
+.diceBattling {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    padding-top: 50px;
+}
+
+.diceContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+/* ------ #id Selectors ------ */
+#gameEndCredits {
+    div{
+        div{
+            h4{
+                font-size: larger;
+                text-decoration: underline;
+                color: $secondary_color;
+                margin-bottom: 10px;
+            }
+
+            p{
+                margin-top: 0;
+                color: $secondary_color;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+
+/* ------ #id Selectors ------ */
+#gameInstruction {
+    @include game-css-style (900px, 700px, fixed, 50%, 50%, $border_color, 10px);
+    display: inline;
+}
+
+#gameEndCredits {
+    @include game-css-style (900px, 700px, fixed, 50%, 50%, $border_color, 10px);
+    display: none;
+}
+
+/* possible mixins2 */
+#instructContainer, #endCreditsContainer {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 5%;
+}
+
+/* possible mixins */
+#instructions, #endCredits {
+    background: $border_color; 
+    width: 600px; 
+    height: 750px; 
+    color: $secondary_color;
+    padding: 5%;
+}
+
+#endCredits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#price{
+    padding-top: 30px;
+    width: 300px;
+    padding-left: 20%;
+}
+
+#instBtn, #endCreditBtn {
+    margin-top: 3%;
+}
+
+#instBtn *, #endCreditBtn * {
+    height: 50px;
+    width: 100px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#upperKeys2, #midKeys2, #lowerKeys2 {
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+    
+}
+
+#dungeonCrawler {
+    position: relative;
+    height: 800px;
+    left: 3.5%;
+}
+
+#floor {
+    position: absolute;
+}
+
+#character{
+    position: absolute;
+}
+
+/* Dice battle */
+#diceBattle {
+    @include game-css-style (900px, 700px, fixed, 50%, 50%, $border_color, 10px);
+    display: none;
+}
+
+/* possible mixins2 */
+#diceBattleContainer {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 5%;
+}
+
+/* possible mixins */
+#diceCharBattle{
+    @include game-disply-style ($game_background, 500px, 400px);
+    display: inline; 
+}
+
+
+/* possible mixins */
+#diceYouWin {
+    @include game-disply-style ($game_background, 500px, 400px);
+    display: none;
+}
+
+/* possible mixins */
+#diceYouLost{
+    @include game-disply-style ($game_background, 500px, 400px);
+    display: none;
+}
+
+#diceStats {
+    display: flex; 
+    background:$background_dice_stats; 
+    margin: 5% 5%;
+}
+
+#playerStats, #monsStats {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+#diceBtnContainer {
+    display: flex; 
+    gap: 10%;
+    justify-content: center;
+    width: 300px
+}
+
+#diceBtnContainer * {
+    height: 50px;
+    width: 100px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.diceChar {
+    width: 20%; height: auto;
+} 
+
+#diceMons {
+    transform: scaleX(-1); 
+    width: 30%; height: auto;
+}
+
+#hangMan {
+    @include game-css-style (900px, 700px, fixed, 50%, 50%, $border_color, 10px);
+    display: none;
+}
+
+#hangManContainer {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 5%;
+}
+
+#HangManWordGuess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hangManAnime {
+    margin-top: 10%;
+}
+
+#word-container {
+    font-size:3.5em;
+
+    margin-top: 10%;
+}
+
+/* Mixin3 */
+#hangManUnlocking {
+    @include game-disply-style ($game_background, 500px, 400px);
+    display: inline;
+    color: $text_color2;
+}
+
+#hangManUnlock {
+    @include game-disply-style ($game_background, 500px, 400px);
+    display: none;
+}
+
+#hangManDead {
+    @include game-disply-style ($game_background, 500px, 400px); 
+    display: none;
+}
+
+
+#keyBoard {
+    margin: 5% 5%;
+}
+
+#upperKeys2, #midKeys2, #lowerKeys2 {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+    
+}
+
+#hangManBtnContainer * {
+    height: 50px;
+    width: 100px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+
+
+#wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: $secondary_color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 5px 5px $border_color;
+
+    transition: opacity 1s;
+}
+
+/* ------ #responsive to screen ------ */
+@media only screen and (max-width: 582px) {
+   
+  }
